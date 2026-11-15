@@ -1,0 +1,44 @@
+# PooFecto! content manager (Decap CMS)
+# Open https://<your site>/admin/ to add or edit Paw-sitivity posts.
+# One-time sign-in setup is required first. See README.md, "Paw-sitivity content manager".
+
+backend:
+  name: github
+  repo: Poofecto/Poofecto-website
+  branch: main
+  # Sign-in helper. Replace with your OAuth helper's address after setup (see README):
+  base_url: https://REPLACE-WITH-YOUR-OAUTH-HELPER.example.com
+
+site_url: https://poofecto.com
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+collections:
+  - name: pawsitivity
+    label: Paw-sitivity
+    files:
+      - name: posts
+        label: Paw-sitivity posts
+        file: content/pawsitivity.json
+        fields:
+          - label: Posts
+            name: posts
+            widget: list
+            summary: "{{fields.date}} | {{fields.category}} | {{fields.title}}"
+            fields:
+              - { label: Headline, name: title, widget: string }
+              - label: Category
+                name: category
+                widget: select
+                options:
+                  - Birthday Club
+                  - Dog Tips & Tricks
+                  - Training & Breed Facts
+                  - Community & Adoption
+                  - Announcements
+              - { label: Post date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: Photo, name: image, widget: image, required: false, hint: "Landscape photo. Birthday and customer photos need the owner's written permission." }
+              - { label: Description, name: summary, widget: text, hint: "2-3 short sentences." }
+              - { label: Event date, name: event_date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false, hint: "Only for events like adoption days." }
+              - { label: Link, name: link, widget: string, required: false, hint: "Optional. Full web address, e.g. https://..." }
+              - { label: Link button text, name: link_text, widget: string, required: false, hint: "e.g. Event details" }

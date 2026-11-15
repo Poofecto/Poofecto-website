@@ -31,6 +31,7 @@
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#why">Why PooFecto!</a>
+        <a href="#pawsitivity">Paw-sitivity</a>
         <a href="#faq">FAQ</a>
         <a href="#quote" class="btn btn-lime btn-sm">Free Quote</a>
       </nav>
@@ -51,7 +52,26 @@
           </div>
         </div>
         <div class="hero-art">
-          <img class="hero-photo" src="assets/hero-golden.jpg" alt="A happy golden retriever lying on a clean green lawn in a fenced backyard" width="1400" height="933" fetchpriority="high">
+          <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Happy dogs in clean backyards">
+            <div class="carousel-frame">
+            <img src="assets/hero/golden-retriever.jpg" alt="A happy golden retriever lying on a clean green lawn" width="1200" height="900" class="is-active" fetchpriority="high">
+            <img src="assets/hero/german-shepherd.jpg" alt="A German shepherd tilting its head in a fenced backyard" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/corgi-and-lab.jpg" alt="A corgi carrying a tennis ball beside a chocolate Lab on green grass" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/husky.jpg" alt="A husky relaxing in the sun on a backyard lawn" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/french-bulldog-pied.jpg" alt="A black and white French bulldog standing on a sunny lawn" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/boxer.jpg" alt="A boxer trotting across a backyard lawn" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/dachshund.jpg" alt="A dachshund sniffing the grass in a backyard" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/corgi-running.jpg" alt="A corgi running across a sunny lawn" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/black-lab.jpg" alt="A black Lab sitting on the lawn in front of a house" width="1200" height="900" loading="lazy">
+            <img src="assets/hero/dalmatian.jpg" alt="A Dalmatian running across a fenced backyard lawn" width="1200" height="900" loading="lazy">
+            </div>
+            <div class="carousel-controls">
+              <button type="button" class="car-btn" data-car="prev" aria-label="Previous photo">&#8249;</button>
+              <button type="button" class="car-btn car-pause" data-car="pause" aria-label="Pause photos">&#10074;&#10074;</button>
+              <button type="button" class="car-btn" data-car="next" aria-label="Next photo">&#8250;</button>
+              <span class="car-count" aria-live="polite"><span data-car="index">1</span> / 10</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -192,17 +212,21 @@
       </div>
     </section>
 
-    <!-- COMMUNITY -->
-    <section class="section" id="community">
-      <div class="wrap narrow center">
+    <!-- PAW-SITIVITY: posts load from content/pawsitivity.json (edited in /admin/) -->
+    <section class="section section-tint" id="pawsitivity">
+      <div class="wrap">
         <p class="eyebrow dark">Paw-sitivity</p>
-        <h2>Good for Bakersfield dogs</h2>
-        <p>We use our page to share local adoption and foster events, shelter news, low-cost microchip and spay/neuter clinics, and shout-outs to local groomers, trainers and pet businesses. Have an event we should share? Email us at <a href="mailto:poofecto@gmail.com">poofecto@gmail.com</a>.</p>
+        <h2>Good news for Bakersfield dogs</h2>
+        <p class="section-lead">Customer-approved birthday celebrations, dog tips, training tricks, local adoption events and PooFecto! news. Have an event we should share? Email <a href="mailto:poofecto@gmail.com">poofecto@gmail.com</a>.</p>
+        <div class="paw-filters" role="group" aria-label="Filter posts by category" hidden></div>
+        <div class="paw-grid" aria-live="polite"></div>
+        <div class="paw-more-wrap"><button type="button" class="btn btn-outline paw-more" hidden>Show more posts</button></div>
+        <noscript><p>Turn on JavaScript to see our latest posts, or follow us on <a href="https://www.facebook.com/PooFecto">Facebook</a>.</p></noscript>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section section-tint" id="faq">
+    <section class="section" id="faq">
       <div class="wrap narrow">
         <p class="eyebrow dark">FAQ</p>
         <h2>Questions, answered</h2>

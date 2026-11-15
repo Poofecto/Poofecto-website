@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "title": "PooFecto! is now scooping in Bakersfield",
+      "category": "Announcements",
+      "date": "2026-11-15",
+      "image": "assets/pawsitivity/news-dog.jpg",
+      "summary": "We're booking our first weekly routes now. Request a free quote with your ZIP code and we'll let you know if you're on our route.",
+      "event_date": "",
+      "link": "#quote",
+      "link_text": "Request a free quote"
+    },
+    {
+      "title": "The 7-second paw test",
+      "category": "Dog Tips & Tricks",
+      "date": "2026-11-14",
+      "image": "assets/pawsitivity/paw-test.jpg",
+      "summary": "Before a walk, press the back of your hand on the pavement for 7 seconds. If it's too hot for your hand, it's too hot for paws. In a Bakersfield summer, walk early in the morning or after sunset.",
+      "event_date": "",
+      "link": "",
+      "link_text": ""
+    },
+    {
+      "title": "Teach a rock-solid \"leave it\"",
+      "category": "Training & Breed Facts",
+      "date": "2026-11-13",
+      "image": "assets/pawsitivity/leave-it.jpg",
+      "summary": "Hold a treat in a closed fist. Wait until your dog stops sniffing and backs off, then say \"yes\" and reward from your other hand. Practice a few minutes a day before adding the words \"leave it.\"",
+      "event_date": "",
+      "link": "",
+      "link_text": ""
+    }
+  ]
+}
