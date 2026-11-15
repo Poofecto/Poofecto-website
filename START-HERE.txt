@@ -1,0 +1,45 @@
+POOFECTO! — WEBSITE PACKAGE
+===========================
+
+WHAT IS INCLUDED
+- index.html : complete responsive marketing website
+- styles.css : branding / design
+- script.js : interactive pricing and mobile menu
+- privacy.html : introductory privacy statement
+- assets/ : logo reference art, derived dog illustration, and favicon
+
+PUBLISH WITH CLOUDFLARE PAGES (FREE PLAN)
+1. Create / sign into a Cloudflare account.
+2. Open Workers & Pages > Create > Pages > Direct Upload (menu names may vary).
+3. Upload ALL contents of this website folder, ideally by dragging the folder or uploading poofecto-site.zip. Do NOT upload a zip containing another outer directory layer if Pages expects index.html at the root.
+4. Cloudflare provides a *.pages.dev preview URL. Test the site first.
+5. Add custom domain poofecto.com in Pages > Custom domains. Follow the exact DNS prompts. For an apex custom domain, Cloudflare may ask to move nameservers from GoDaddy to Cloudflare; this does NOT mean transferring or repurchasing the domain. Be mindful of existing DNS records if any.
+
+IMPORTANT: ACTIVATE QUOTE FORM BEFORE SHARING WEBSITE
+- This site's form posts to FormSubmit.co using poofecto@gmail.com.
+- The first submission requires email confirmation / activation at poofecto@gmail.com before the form will deliver subsequent inquiries.
+- Send a test quote, open the email received at poofecto@gmail.com, and ACTIVATE the form.
+- Test a second submission and verify delivery. If the test fails, do NOT advertise the form as working; customers can use the visible email link while you troubleshoot.
+- This third-party solution may require CAPTCHA steps. It is not a CRM or automated customer database.
+
+PRICING
+- Weekly: 1 dog $20/visit; 2 $25; 3 $28; 4 $32.
+- 4 visits = 4 times visit price; 5 visits = 5 times visit price. Charged once per CALENDAR month.
+- Twice-weekly, one-time, 5+ dog / commercial: custom quote until those prices are approved.
+
+BEFORE LAUNCH
+- Verify approved LLC status / legal entity name; ensure legal and privacy policy statements are accurate.
+- Check business licensing, insurance, and dog waste disposal compliance.
+- Confirm which neighborhoods/ZIP codes are eligible for service.
+- Test on desktop and mobile. Check live quote form, emails, pricing, and links.
+- Dog birthday details and treat allergies should be collected only from enrolled customers through a secure intake process; the public quote form deliberately does not ask for them.
+- Instagram and other social links can be added after accounts are created.
+
+VISUAL DESIGN
+- Color: lime #BAF820, deep green #101C16.
+- The original squatting dog illustration was sourced from the user's uploaded artwork and lightly adapted to the site.
+- The logo is a web-font/typographic interpretation. Replace with the original official transparent logo file when available for exact visual fidelity.
+- Fonts are loaded from Google Fonts when online; fallbacks work offline.
+
+COST
+Cloudflare Pages has a free hosting tier suitable for this static site. Your GoDaddy domain renewal still applies. FormSubmit has usage policies / limits; check vendor terms as needs grow.
