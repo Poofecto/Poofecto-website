@@ -1,14 +1,56 @@
-(()=>{
- const menu=document.getElementById('menuButton'),links=document.getElementById('navLinks');
- menu?.addEventListener('click',()=>{let open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close menu':'Open menu')});
- links?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
- document.getElementById('year').textContent=String(new Date().getFullYear());
- const prices={1:20,2:25,3:28,4:32};let dogs=1;
- const visits=document.getElementById('visits');
- const update=()=>{document.getElementById('perVisit').textContent=`$${prices[dogs]}`;document.getElementById('perMonth').textContent=`$${prices[dogs]*Number(visits.value)}`;
- const formDogs=document.getElementById('dogs');if(formDogs)formDogs.value=String(dogs)};
- document.querySelectorAll('.dog-choice').forEach(b=>b.addEventListener('click',()=>{dogs=Number(b.dataset.dogs);document.querySelectorAll('.dog-choice').forEach(x=>{let chosen=x===b;x.classList.toggle('selected',chosen);x.setAttribute('aria-pressed',String(chosen))});update()}));
- visits?.addEventListener('change',update);update();
- const form=document.getElementById('quoteForm');
- form?.addEventListener('submit',()=>{const status=document.getElementById('formStatus');status.textContent='Submitting securely through our form provider. Please complete any confirmation step shown.'});
+// PooFecto! — small, dependency-free behaviours.
+(function () {
+  // Per-visit rates (LOCKED in the Brand Bible). Edit here if prices change.
+  var RATES = { 1: 20, 2: 25, 3: 28, 4: 32 };
+
+  function money(n) { return "$" + n.toLocaleString("en-US"); }
+
+  function updateCalc() {
+    var dogs = document.querySelector('input[name="dogs"]:checked');
+    var visits = document.querySelector('input[name="visits"]:checked');
+    if (!dogs || !visits) return;
+    var rate = RATES[dogs.value];
+    var v = parseInt(visits.value, 10);
+    document.getElementById("calc-rate").textContent = money(rate);
+    document.getElementById("calc-visits").textContent = v;
+    document.getElementById("calc-total").textContent = money(rate * v);
+  }
+
+  document.querySelectorAll('input[name="dogs"], input[name="visits"]').forEach(function (el) {
+    el.addEventListener("change", updateCalc);
+  });
+  updateCalc();
+
+  // Carry the calculator's dog count into the quote form.
+  var dogSelect = document.getElementById("dogcount");
+  document.querySelectorAll('input[name="dogs"]').forEach(function (el) {
+    el.addEventListener("change", function () { if (dogSelect) dogSelect.value = el.value; });
+  });
+
+  // Mobile menu
+  var toggle = document.querySelector(".menu-toggle");
+  var nav = document.getElementById("site-nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+      }
+    });
+  }
+
+  // Footer year
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
 })();
