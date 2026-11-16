@@ -1,0 +1,44 @@
+
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: pawsitivity
+    label: Paw-sitivity
+    type: file
+    path: content/pawsitivity.json
+    format: json
+    fields:
+      - name: posts
+        label: Posts
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Headline
+            type: string
+          - name: category
+            label: Category
+            type: string
+          - name: date
+            label: Post date
+            type: string
+          - name: image
+            label: Photo
+            type: image
+          - name: summary
+            label: Description
+            type: text
+          - name: event_date
+            label: Event date
+            type: string
+          - name: link
+            label: External link
+            type: string
+          - name: link_text
+            label: Link button text
+            type: string
