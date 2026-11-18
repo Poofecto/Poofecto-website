@@ -84,6 +84,15 @@ p { margin: 0 0 1em; }
 .car-count { color: #aab6a6; font-size: .9rem; min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) { .carousel-frame img { transition: none; } }
 
+
+/* Carousel headlines and stories: optional, editable through Pages CMS. */
+.carousel-story { padding: .9rem .3rem .15rem; text-align: center; }
+.carousel-category { display: inline-block; color: var(--lime); font-family: var(--font-head); font-weight: 700; font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; }
+.carousel-title { font-size: clamp(1.15rem, 2.2vw, 1.45rem); line-height: 1.2; margin: .2rem 0 .3rem; color: var(--white); }
+.carousel-description { max-width: 42ch; margin: .15rem auto .5rem; color: #d6ddd2; font-size: .92rem; line-height: 1.45; }
+.carousel-link { display: inline-block; margin: .2rem 0 .3rem; color: var(--lime); font-weight: 700; font-size: .92rem; }
+.carousel-link:hover { color: var(--white); }
+
 /* Sections */
 .section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 .section-tint { background: var(--tint); }

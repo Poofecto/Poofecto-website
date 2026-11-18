@@ -1,0 +1,104 @@
+{
+  "slides": [
+    {
+      "image": "assets/hero/golden-retriever.jpg",
+      "alt": "A happy golden retriever lying on a clean green lawn",
+      "title": "Golden Retriever",
+      "category": "Dogs",
+      "description": "A happy dog, a little sunshine, and a backyard ready for another round of fetch.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/german-shepherd.jpg",
+      "alt": "A German shepherd tilting its head in a fenced backyard",
+      "title": "German Shepherd",
+      "category": "Dogs",
+      "description": "A curious face and room to explore. That’s what backyards are for.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/corgi-and-lab.jpg",
+      "alt": "A corgi carrying a tennis ball beside a chocolate Lab on green grass",
+      "title": "Corgi & Labrador",
+      "category": "Dogs",
+      "description": "Two friends, one tennis ball, and plenty of grass to play on.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/husky.jpg",
+      "alt": "A husky relaxing in the sun on a backyard lawn",
+      "title": "Husky",
+      "category": "Dogs",
+      "description": "A sunny spot in the yard is sometimes all a dog needs.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/french-bulldog-pied.jpg",
+      "alt": "A black and white French bulldog standing on a sunny lawn",
+      "title": "French Bulldog",
+      "category": "Dogs",
+      "description": "Small dog, big personality. Every backyard has a story.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/boxer.jpg",
+      "alt": "A boxer trotting across a backyard lawn",
+      "title": "Boxer",
+      "category": "Dogs",
+      "description": "A good day for a run around the yard.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/dachshund.jpg",
+      "alt": "A dachshund sniffing the grass in a backyard",
+      "title": "Dachshund",
+      "category": "Dogs",
+      "description": "There’s always something interesting hiding in the grass.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/corgi-running.jpg",
+      "alt": "A corgi running across a sunny lawn",
+      "title": "Corgi on the Run",
+      "category": "Dogs",
+      "description": "Full speed ahead for another backyard adventure.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/black-lab.jpg",
+      "alt": "A black Lab sitting on the lawn in front of a house",
+      "title": "Black Labrador",
+      "category": "Dogs",
+      "description": "A clean lawn makes a welcoming space for the whole pack.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    },
+    {
+      "image": "assets/hero/dalmatian.jpg",
+      "alt": "A Dalmatian running across a fenced backyard lawn",
+      "title": "Dalmatian",
+      "category": "Dogs",
+      "description": "Ready to run, play, and enjoy the sunshine.",
+      "link": "",
+      "link_text": "",
+      "visible": true
+    }
+  ]
+}

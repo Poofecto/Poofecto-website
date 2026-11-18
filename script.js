@@ -51,24 +51,71 @@
   }
 
 
-  // Hero carousel: 5-second crossfade; arrows and pause; pauses on hover/focus,
-  // when the tab is hidden, and never auto-rotates for reduced-motion users.
+  // Hero carousel content comes from Pages CMS: content/carousel.json.
+  // Existing HTML images remain available if the JSON cannot load.
   var car = document.querySelector(".carousel");
   if (car) {
-    var slides = car.querySelectorAll(".carousel-frame img");
+    var frame = car.querySelector(".carousel-frame");
     var idxEl = car.querySelector('[data-car="index"]');
+    var countEl = car.querySelector(".car-count");
     var pauseBtn = car.querySelector('[data-car="pause"]');
+    var story = car.querySelector(".carousel-story");
+    var categoryEl = car.querySelector(".carousel-category");
+    var titleEl = car.querySelector(".carousel-title");
+    var descEl = car.querySelector(".carousel-description");
+    var linkEl = car.querySelector(".carousel-link");
+    var slides = Array.prototype.slice.call(frame.querySelectorAll("img"));
+    var entries = slides.map(function (img) { return { image: img.getAttribute("src"), alt: img.alt }; });
     var i = 0, timer = null;
     var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var userPaused = reduced, hoverPaused = false;
+    var safeUrl = function (value) {
+      if (typeof value !== "string") return "";
+      var v = value.trim();
+      // Only allow ordinary web links, in-page anchors and mail links.
+      return /^(https?:\/\/|#[a-z0-9_-]+$|mailto:)/i.test(v) ? v : "";
+    };
+
+    function renderStory() {
+      var item = entries[i] || {};
+      var category = String(item.category || "").trim();
+      var title = String(item.title || "").trim();
+      var desc = String(item.description || "").trim();
+      var link = safeUrl(item.link);
+      var text = String(item.link_text || "Learn more").trim();
+      categoryEl.textContent = category;
+      titleEl.textContent = title;
+      descEl.textContent = desc;
+      categoryEl.hidden = !category;
+      titleEl.hidden = !title;
+      descEl.hidden = !desc;
+      linkEl.hidden = !link;
+      if (link) {
+        linkEl.textContent = text;
+        linkEl.href = link;
+        if (/^https?:/i.test(link)) {
+          linkEl.target = "_blank";
+          linkEl.rel = "noopener noreferrer";
+        } else {
+          linkEl.removeAttribute("target");
+          linkEl.removeAttribute("rel");
+        }
+      } else {
+        linkEl.removeAttribute("href");
+      }
+      story.hidden = !(category || title || desc || link);
+    }
 
     function show(n) {
+      if (!slides.length) return;
       slides[i].classList.remove("is-active");
       i = (n + slides.length) % slides.length;
       slides[i].classList.add("is-active");
-      idxEl.textContent = i + 1;
+      idxEl.textContent = String(i + 1);
+      countEl.lastChild.textContent = " / " + slides.length;
       var next = slides[(i + 1) % slides.length];
       if (next.loading === "lazy") next.loading = "eager";
+      renderStory();
     }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
     function start() {
@@ -79,7 +126,7 @@
     }
     function setPauseLabel() {
       pauseBtn.innerHTML = userPaused ? "&#9654;" : "&#10074;&#10074;";
-      pauseBtn.setAttribute("aria-label", userPaused ? "Play photos" : "Pause photos");
+      pauseBtn.setAttribute("aria-label", userPaused ? "Play slides" : "Pause slides");
     }
     car.querySelector('[data-car="prev"]').addEventListener("click", function () { show(i - 1); start(); });
     car.querySelector('[data-car="next"]').addEventListener("click", function () { show(i + 1); start(); });
@@ -90,13 +137,46 @@
     car.addEventListener("focusout", function () { hoverPaused = false; start(); });
     document.addEventListener("visibilitychange", start);
     car.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { show(i - 1); }
-      if (e.key === "ArrowRight") { show(i + 1); }
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+      if (e.key === "ArrowLeft") { show(i - 1); start(); }
+      if (e.key === "ArrowRight") { show(i + 1); start(); }
     });
     setPauseLabel();
+    show(0);
     start();
-  }
 
+    if (window.fetch) {
+      fetch("content/carousel.json", { cache: "no-cache" })
+        .then(function (r) { if (!r.ok) throw new Error("Carousel unavailable"); return r.json(); })
+        .then(function (data) {
+          if (!data || !Array.isArray(data.slides)) return;
+          var visible = data.slides.filter(function (x) {
+            return x && x.visible !== false && typeof x.image === "string" && x.image.trim();
+          });
+          if (!visible.length) return; // Keep original images if all entries are hidden.
+          var fragment = document.createDocumentFragment();
+          var nextSlides = [];
+          visible.forEach(function (item, pos) {
+            var img = document.createElement("img");
+            img.src = item.image;
+            img.alt = String(item.alt || item.title || "PooFecto! update");
+            img.loading = pos === 0 ? "eager" : "lazy";
+            img.decoding = "async";
+            if (pos === 0) img.className = "is-active";
+            fragment.appendChild(img);
+            nextSlides.push(img);
+          });
+          stop();
+          frame.replaceChildren(fragment);
+          slides = nextSlides;
+          entries = visible;
+          i = 0;
+          show(0);
+          start();
+        })
+        .catch(function () { /* Keep original pictures on network error. */ });
+    }
+  }
 
   // Paw-sitivity: posts come from content/pawsitivity.json, which the
   // content manager (/admin/) edits. Newest first, filter by category.
