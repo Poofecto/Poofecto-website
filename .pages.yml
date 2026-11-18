@@ -42,3 +42,44 @@ content:
           - name: link_text
             label: Link button text
             type: string
+
+  - name: homepage_carousel
+    label: Homepage Carousel
+    type: file
+    path: content/carousel.json
+    format: json
+    fields:
+      - name: slides
+        label: Carousel Slides (drag to reorder)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: visible
+            label: Show this slide
+            type: boolean
+          - name: image
+            label: Photo
+            type: image
+          - name: alt
+            label: Image description (accessibility)
+            type: string
+          - name: title
+            label: Headline
+            type: string
+          - name: category
+            label: Category
+            type: select
+            options:
+              values: [Dogs, Events, News, Community, Promotions]
+          - name: description
+            label: Short paragraph
+            type: text
+          - name: link
+            label: Optional link (full URL or #section)
+            type: string
+          - name: link_text
+            label: Optional link text
+            type: string
